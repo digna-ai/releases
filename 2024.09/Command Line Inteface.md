@@ -12,10 +12,10 @@
 - [Purpose of the Command Line Interface (CLI)](#purpose-of-the-command-line-interface-cli)
 - [Installation Instruction for Windows](#installation-instruction-for-windows)
 - [CLI Basics](#cli-basics)
-- [Using `help` Option](#using-help-option)
-- [Using `check-repo-connection` Command](#using-check-repo-connection-command)
-- [Using `version` Command](#using-version-command)
-- [Using Logging Options](#using-logging-options)
+  - [Using `help` Option](#using-help-option)
+  - [Using `check-repo-connection` Command](#using-check-repo-connection-command)
+  - [Using `version` Command](#using-version-command)
+  - [Using Logging Options](#using-logging-options)
 - [User Management](#user-management)
   - [Using `add-user` Command](#using-add-user-command)
   - [Using `delete-user` Command](#using-delete-user-command)
@@ -83,5 +83,8 @@ The `--help` option provides information about available commands and their usag
    dignacli --help
 
 2.  **Getting Help for Specific Commands:**  
-  For detailed information about a specific command, append `--help` to that command. For example, to obtain help with the `add-user` command, run:
+  For detailed information about a specific command, append `--help` to that command.
+  For example, to obtain help with the `add-user` command, run:
+   ```bash
+   dignacli add-user --help
 
