@@ -139,9 +139,9 @@ dignacli version 2024.09
   
 By default, the console output of the Digna commands is designed to be minimalistic. Most commands offer the possibility of providing additional information, using the following options:  
   
--- verbose (-v)
--- debug (-d)
--- logfile (lf)
+-- verbose (-v)  
+-- debug (-d)  
+-- logfile (lf)  
   
 “verbose” and “debug” are defining the level of detail, whereas the “logfile” switch allows redirecting the output to be streamed to a file rather than the console window.
 
