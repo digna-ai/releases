@@ -307,3 +307,159 @@ For instance, to encrypt the password `mypassword123`, you would use:
 dignacli encrypt mypassword123
 ```
 This command outputs the encrypted version of the provided password, which can then be used in secure contexts. If the password argument is not provided, the CLI will display an error indicating the missing argument.
+
+## Using `generate-key` Command
+  
+The `generate-key` command is used to generate a Fernet key, which is essential for securing passwords stored in the DIGNA repository.
+  
+**Command Usage**
+```bash
+dignacli generate-key
+```
+  
+# Data Management
+
+## Using `clean-up` Command
+
+The `clean-up` command in the DIGNA CLI is used to remove profiles, predictions, and traffic light system data for one or more data sources within a specified project. This command is essential for data lifecycle management, helping maintain an organized and efficient data environment by clearing outdated or unnecessary data.
+
+### Command Usage
+
+```bash
+dignacli clean-up <PROJECT_NAME> <FROM_DATE> <TO_DATE> [options]
+```
+  
+### Arguments
+  
+- **PROJECT_NAME**: The name of the project from which data is to be removed (required). Using the keyword all-projects in this argument instructs Digna to iterate over all existing projects and apply this command.
+- **FROM_DATE**: The start date and time for the data removal. Acceptable formats include %Y-%m-%d, %Y-%m-%dT%H:%M:%S, or %Y-%m-%d %H:%M:%S (required).
+- **TO_DATE**: The end date and time for the data removal, following the same formats as FROM_DATE (required).
+  
+### Options
+  
+- `--table-name`, `-tn`: Limits the clean-up operation to a specific table within the project.
+- `--table-filter`, `-tf`: Filters to limit the clean-up to tables containing the specified substring in their names.
+- `--timing`, `-tm`: Displays the time duration of the clean-up process after completion.
+- `--help`: Displays help information for the clean-up command and exits.
+  
+### Example
+  
+To remove data from the project ProjectA between January 1, 2023, and June 30, 2023:
+  
+```bash
+dignacli clean-up ProjectA 2023-01-01 2023-06-30
+```
+  
+To remove data only from a specific table named `Table1`:
+  
+```bash
+dignacli clean-up ProjectA 2023-01-01 2023-06-30 --table-name Table1
+```
+  
+This command helps in managing data storage and ensuring that the repository only contains relevant information.
+
+## Using `inspect` Command
+
+The `inspect` command in the DIGNA CLI is used to create profiles, predictions, and traffic light system data for one or more data sources within a specified project. This command helps in analyzing and monitoring data over a defined period.
+
+### Command Usage
+
+```bash
+dignacli inspect <PROJECT_NAME> <FROM_DATE> <TO_DATE> [options]
+```
+  
+### Arguments
+  
+- **PROJECT_NAME**: The name of the project for which data is to be inspected (required). Using the keyword all-projects in this argument instructs Digna to iterate over all existing projects and apply this command.
+- **FROM_DATE**: The starting date and time for the data inspection. Acceptable formats include %Y-%m-%d, %Y-%m-%dT%H:%M:%S, or %Y-%m-%d %H:%M:%S (required).
+- **TO_DATE**: The ending date and time for the data inspection, following the same formats as FROM_DATE (required).
+  
+### Options
+
+- `--table-name`, `-tn`: Limits the inspection to a specific table within the project.
+- `--table-filter`, `-tf`: Filters to inspect only tables containing the specified substring in their names.
+- `--force-profile`: Forces the recollection of profiles. The default is force-profile.
+- `--no-force-profile`: Prevents the recollection of profiles.
+- `--force-prediction`: Forces the recalculation of predictions. The default is force-prediction.
+- `--no-force-prediction`: Prevents the recalculation of predictions.
+- `--force-alert-status`: Forces the recalculation of alert statuses. The default is force-alert-status.
+- `--no-force-alert-status`: Prevents the recalculation of alert statuses.
+- `--timing`, `-tm`: Displays the duration of the inspection process after completion.
+- `--alert-notification`, `-an`: Sends alert notifications to subscribed channels.
+  
+### Example
+  
+To inspect data for the project `ProjectA` from January 1, 2024, to January 31, 2024:
+  
+```bash
+dignacli inspect ProjectA 2024-01-01 2024-01-31
+```
+  
+To inspect only a specific table and force recalculation of predictions:
+  
+```bash
+dignacli inspect ProjectA 2024-01-01 2024-01-31 --table-name Table1 --force-prediction
+```
+This command is useful for generating updated profiles and predictions, monitoring data integrity, and managing alert systems within a specified project timeframe.
+
+## Using `tls-status` Command
+
+The `tls-status` command in the DIGNA CLI is used to query the status of the Traffic Light System (TLS) for a specific table within a project on a given date. The Traffic Light System provides insights into the data's health and quality, indicating any issues or alerts that may need attention.
+  
+### Command Usage
+  
+```bash
+dignacli tls-status <PROJECT_NAME> <TABLE_NAME> <DATE>
+```
+  
+### Arguments
+  
+- **PROJECT_NAME**: The name of the project for which the TLS status is being queried (required).
+- **TABLE_NAME**: The specific table within the project for which the TLS status is needed (required).
+- **DATE**: The date for which the TLS status is being queried, typically in the format %Y-%m-%d (required).
+  
+### Example
+  
+To check the TLS status for a table named UserData in the project ProjectA on July 1, 2024:
+
+```bash
+dignacli tls-status ProjectA UserData 2024-07-01
+```
+
+This command helps users monitor and maintain data quality by providing a clear and actionable status report based on predefined criteria.
+
+## Using `list-projects` Command
+  
+The `list-projects` command in the DIGNA CLI is used to display a list of all available projects within the DIGNA system.
+  
+### Command Usage
+  
+```bash
+dignacli list-projects
+```
+
+This command is especially useful for administrators and users managing multiple projects, providing a quick overview of the available projects in the DIGNA repository.
+
+## Using `list-ds` Command
+
+The `list-ds` command in the DIGNA CLI is used to display a list of all available data sources within a specified project. This command is useful for understanding the data assets available for analysis and management in the DIGNA system.
+
+### Command Usage
+  
+```bash
+dignacli list-ds <PROJECT_NAME>#
+```
+
+### Arguments
+- **PROJECT_NAME**: The name of the project for which the data sources are being listed (required).
+  
+### Example
+  
+To list all data sources in the project named `ProjectA`:
+  
+```bash
+dignacli list-ds ProjectA
+```
+  
+This command provides users with an overview of the data sources available in a project, helping them to navigate and manage the data landscape more effectively.
+
