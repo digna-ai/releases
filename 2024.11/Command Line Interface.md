@@ -132,7 +132,7 @@ dignacli --version
   
 ### Example Output
 ```bash
-dignacli version 2024.09
+dignacli version 2024.11
 ```
 
 ## Using logging options
@@ -206,7 +206,7 @@ The `modify-user` command in the ***digna*** CLI is used to update the details o
 ### Command Usage
   
 ```bash
-dignacli modify-user <user> <USER_FULL_NAME> [options]
+dignacli modify-user <USER_NAME> <USER_FULL_NAME> [options]
 ```
   
 ### Arguments
@@ -232,7 +232,7 @@ The `modify-user-pwd` command in the ***digna*** CLI is used to change the passw
   
 ### Command Usage
 ```bash
-dignacli modify-user-pwd <user> <USER_PWD>
+dignacli modify-user-pwd <USER_NAME> <USER_PWD>
 ```
   
 ### Arguments
@@ -383,14 +383,13 @@ dignacli inspect <PROJECT_NAME> <FROM_DATE> <TO_DATE> [options]
 
 - `--table-name`, `-tn`: Limits the inspection to a specific table within the project.
 - `--table-filter`, `-tf`: Filters to inspect only tables containing the specified substring in their names.
-- `--force-profile`: Forces the recollection of profiles. The default is force-profile.
-- `--no-force-profile`: Prevents the recollection of profiles.
-- `--force-prediction`: Forces the recalculation of predictions. The default is force-prediction.
-- `--no-force-prediction`: Prevents the recalculation of predictions.
-- `--force-alert-status`: Forces the recalculation of alert statuses. The default is force-alert-status.
-- `--no-force-alert-status`: Prevents the recalculation of alert statuses.
+- `--do-profile`: Triggers the recollection of profiles. The default is do-profile.
+- `--no-do-profile`: Prevents the recollection of profiles.
+- `--do-prediction`: Triggers the recalculation of predictions. The default is do-prediction.
+- `--no-do-prediction`: Prevents the recalculation of predictions.
+- `--do-alert-status`: Triggers the recalculation of alert statuses. The default is do-alert-status.
+- `--no-do-alert-status`: Prevents the recalculation of alert statuses.
 - `--timing`, `-tm`: Displays the duration of the inspection process after completion.
-- `--alert-notification`, `-an`: Sends alert notifications to subscribed channels.
   
 ### Example
   
