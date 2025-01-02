@@ -1,10 +1,10 @@
 ## Integrating Digna into ETL Processes
 
-digna can be seamlessly integrated into ETL (Extract, Transform, Load) processes through two primary methods: the Command Line Interface (CLI) and the REST API. Below, each method is described in detail with examples for usage.
+***digna*** can be seamlessly integrated into ETL (Extract, Transform, Load) processes through two primary methods: the Command Line Interface (CLI) and the REST API. Below, each method is described in detail with examples for usage.
 
 ### 1. Integration via Command Line Interface (CLI)
 
-The digna CLI provides a straightforward way to trigger inspections directly from the command line. 
+The ***digna*** CLI provides a straightforward way to trigger inspections directly from the command line. 
 
 #### Running an Inspection:
 
@@ -39,20 +39,20 @@ For a full description of the `tls-status` command, run:
 $ dignacli tls-status --help
 ```
 
-Refer to the Digna Command Line Interface documentation for detailed usage and options.
+Refer to the ***digna*** Command Line Interface documentation for detailed usage and options.
 
 The CLI is ideal for scenarios where minimal setup is needed.
 
 
 ### 2. Integration via REST API
 
-For more programmatic control and integration flexibility, digna provides a comprehensive REST API. The OpenAPI documentation for your digna instance can be accessed at:
+For more programmatic control and integration flexibility, ***digna*** provides a comprehensive REST API. The OpenAPI documentation for your digna instance can be accessed at:
 
 ```plaintext
 (http|https)://<ip-address-or-hostname-of-your-digna-backend>:8082/docs
 ```
 
-For example, assuming the digna backend is running locally with the default `DIGNA_APP_PORT` set to `8082`:
+For example, assuming the ***digna*** backend is running locally with the default `DIGNA_APP_PORT` set to `8082`:
 
 ```plaintext
 http://localhost:8082/docs
@@ -77,11 +77,12 @@ http://localhost:8082/docs
      - Replace `user%40company.abc` and `pwd` with the actual username and password credentials.
 
 2. **Retrieving Project and Data Source IDs**
-   - For further requests, the `<project_id>` and `<data_source_id>` are required. You can manually retrieve these IDs from the Digna frontend or programmatically using the following endpoints:
+   - For further requests, the `<project_id>` and `<data_source_id>` are required. You can manually retrieve these IDs from the ***digna*** frontend or programmatically using the following endpoints:
      - `GET /projects`
      - `GET /projects/<project_id>/data-sources`
 
-   - Alternatively, you can obtain the IDs from the digna dashboard
+   - Alternatively, you can obtain the IDs from the ***digna*** dashboard
+     
       ![image](https://github.com/user-attachments/assets/9c6317a9-ed23-4e2c-a90f-82882ca37e12)
 
 3. **Start an Inspection**
