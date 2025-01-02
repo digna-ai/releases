@@ -1,37 +1,58 @@
 ## Integrating Digna into ETL Processes
 
-Digna can be seamlessly integrated into ETL (Extract, Transform, Load) processes through two primary methods: the Command Line Interface (CLI) and the REST API. Below, each method is described in detail with examples for usage.
+digna can be seamlessly integrated into ETL (Extract, Transform, Load) processes through two primary methods: the Command Line Interface (CLI) and the REST API. Below, each method is described in detail with examples for usage.
 
 ### 1. Integration via Command Line Interface (CLI)
 
-The Digna CLI provides a straightforward way to trigger inspections directly from the command line. This is especially useful for automated scripts or batch processes within your ETL pipeline.
+The digna CLI provides a straightforward way to trigger inspections directly from the command line. 
 
-#### Example Command:
+#### Running an Inspection:
+
+To run an inspection for a specific project and date, use the `dignacli inspect` command:
 
 ```bash
 $ dignacli inspect ProjectDemo 2025-01-01 2025-01-01
 ```
-
 This command runs an inspection for the entire `ProjectDemo` project for the date `2025-01-01`.
 
-#### Additional Information:
-- For a full description of the CLI functionality, you can run the help command:
+For a full description of `inspect` command, you can run the help command:
   ```bash
   $ dignacli inspect --help
   ```
-- Refer to the Digna Command Line Interface documentation for detailed usage and options.
 
-The CLI is ideal for scenarios where minimal setup is needed, and inspections can be executed directly by leveraging predefined configurations.
+#### Checking Inspection Status:
+
+To check the status of an inspection for a particular table (data source) and date within a project, use the `dignacli tls-status` command:
+
+```bash
+$ dignacli tls-status DemoProject Table1 2025-01-01
+```
+
+The output provides the inspection status:
+- `2` - Alert
+- `1` - Warning
+- `0` - All OK
+
+For a full description of the `tls-status` command, run:
+
+```bash
+$ dignacli tls-status --help
+```
+
+Refer to the Digna Command Line Interface documentation for detailed usage and options.
+
+The CLI is ideal for scenarios where minimal setup is needed.
+
 
 ### 2. Integration via REST API
 
-For more programmatic control and integration flexibility, Digna provides a comprehensive REST API. The OpenAPI documentation for your Digna instance can be accessed at:
+For more programmatic control and integration flexibility, digna provides a comprehensive REST API. The OpenAPI documentation for your digna instance can be accessed at:
 
 ```plaintext
 (http|https)://<ip-address-or-hostname-of-your-digna-backend>:8082/docs
 ```
 
-For example, assuming the Digna backend is running locally with the default `DIGNA_APP_PORT` set to `8082`:
+For example, assuming the digna backend is running locally with the default `DIGNA_APP_PORT` set to `8082`:
 
 ```plaintext
 http://localhost:8082/docs
@@ -60,6 +81,7 @@ http://localhost:8082/docs
      - `GET /projects`
      - `GET /projects/<project_id>/data-sources`
 
+   - Alternatively, you can obtain the IDs from the digna dashboard
       ![image](https://github.com/user-attachments/assets/9c6317a9-ed23-4e2c-a90f-82882ca37e12)
 
 3. **Start an Inspection**
@@ -77,4 +99,4 @@ The REST API is particularly suited for dynamic, fine-grained control of inspect
 
 ---
 
-By leveraging either the CLI or REST API, Digna can be effectively incorporated into your ETL processes to ensure robust data quality checks and alerting mechanisms.
+By leveraging either the CLI or REST API, digna can be effectively incorporated into your ETL processes to ensure robust data quality checks and alerting mechanisms.
