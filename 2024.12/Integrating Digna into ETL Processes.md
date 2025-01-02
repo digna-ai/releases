@@ -1,4 +1,4 @@
-## Integrating Digna into ETL Processes
+## Integrating digna into ETL Processes
 
 ***digna*** can be seamlessly integrated into ETL (Extract, Transform, Load) processes through two primary methods: the Command Line Interface (CLI) and the REST API. Below, each method is described in detail with examples for usage.
 
