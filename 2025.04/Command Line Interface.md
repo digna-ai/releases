@@ -28,11 +28,12 @@
   - [Using `generate-key` Command](#using-generate-key-command)
 - [Data Management](#data-management)
   - [Using `clean-up` Command](#using-clean-up-command)
+  - [Using `list-projects` Command](#using-list-projects-command)
+  - [Using `list-ds` Command](#using-list-ds-command)
   - [Using `inspect` Command](#using-inspect-command)
   - [Using `tls-status` Command](#using-tls-status-command)
   - [Using `inspect-async` Command](#using-inspect-async-command)
   - [Using `inspect-status` Command](#using-inspect-status-command)
-  - [Using `list-projects` Command](#using-list-projects-command)
   - [Using `export-ds` Command](#using-export-ds-command)
   - [Using `import-ds` Command](#using-import-ds-command)
   - [Using `plan-import-ds` Command](#using-plan-import-ds-command)
@@ -367,6 +368,42 @@ dignacli clean-up ProjectA 2023-01-01 2023-06-30 --table-name Table1
   
 This command helps in managing data storage and ensuring that the repository only contains relevant information.
 
+## Using `list-projects` Command
+  
+The `list-projects` command in the ***digna*** CLI is used to display a list of all available projects within the ***digna*** system.
+  
+### Command Usage
+  
+```bash
+dignacli list-projects
+```
+
+This command is especially useful for administrators and users managing multiple projects, providing a quick overview of the available projects in the ***digna*** repository.
+
+## Using `list-ds` Command
+
+The `list-ds` command in the ***digna*** CLI is used to display a list of all available data sources within a specified project. This command is useful for understanding the data assets available for analysis and management in the ***digna*** system.
+
+### Command Usage
+  
+```bash
+dignacli list-ds <PROJECT_NAME>
+```
+
+### Arguments
+- **PROJECT_NAME**: The name of the project for which the data sources are being listed (required).
+  
+### Example
+  
+To list all data sources in the project named `ProjectA`:
+  
+```bash
+dignacli list-ds ProjectA
+```
+  
+This command provides users with an overview of the data sources available in a project, helping them to navigate and manage the data landscape more effectively.
+
+
 ## Using `inspect` Command
 
 The `inspect` command in the ***digna*** CLI is used to create profiles, predictions, and traffic light system data for one or more data sources within a specified project. This command helps in analyzing and monitoring data over a defined period.
@@ -495,42 +532,6 @@ To check the progress of an inspection with request ID 12345 on the detailed ste
 dignacli inspect-status 12345 --report-level step
 ```
   
-
-## Using `list-projects` Command
-  
-The `list-projects` command in the ***digna*** CLI is used to display a list of all available projects within the ***digna*** system.
-  
-### Command Usage
-  
-```bash
-dignacli list-projects
-```
-
-This command is especially useful for administrators and users managing multiple projects, providing a quick overview of the available projects in the ***digna*** repository.
-
-## Using `list-ds` Command
-
-The `list-ds` command in the ***digna*** CLI is used to display a list of all available data sources within a specified project. This command is useful for understanding the data assets available for analysis and management in the ***digna*** system.
-
-### Command Usage
-  
-```bash
-dignacli list-ds <PROJECT_NAME>
-```
-
-### Arguments
-- **PROJECT_NAME**: The name of the project for which the data sources are being listed (required).
-  
-### Example
-  
-To list all data sources in the project named `ProjectA`:
-  
-```bash
-dignacli list-ds ProjectA
-```
-  
-This command provides users with an overview of the data sources available in a project, helping them to navigate and manage the data landscape more effectively.
-
 ## Using `export-ds` Command
 
 The `export-ds` command in the ***digna*** CLI is used to create an export of data sources from the ***digna*** repository. By default, all data sources from a given project will be exported.
