@@ -70,7 +70,7 @@ Now you can configure Digna to use the ODBC connection, either with a **DSN (Dat
 In the **"Create a Database Connection"** screen, provide the following:
 
 ```
-Technology:      Databricks
+Technology:      Snowflake
 Database Name:   Database that contains the source schema
 Schema Name:     Schema that contains the source data
 Use ODBC:        Enabled
@@ -101,7 +101,7 @@ name: "Warehouse",      value: "Warehouse to use for the execution of the SQLs"
 In the **"Create a Database Connection"** screen, provide the following:
 
 ```
-Technology:      Databricks
+Technology:      Snowflake
 Database Name:   Schema that contains the source data (same as Schema Name)
 Schema Name:     Schema that contains the source data
 Use ODBC:        Enabled
