@@ -108,7 +108,7 @@ Use ODBC:        Enabled
 
 ```
 name: "Driver",     value: "Oracle in OraDB21Home1"
-name: "DBQ",        value: (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XEPDB1)))'
+name: "DBQ",        value: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XEPDB1)))"
 name: "UID",        value: "your oracle user'
 name: "PWD",        value: "your oracle password"
 ```
