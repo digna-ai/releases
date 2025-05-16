@@ -68,7 +68,7 @@ Now you can configure Digna to use the ODBC connection, either with a **DSN (Dat
 In the **"Create a Database Connection"** screen, provide the following:
 
 ```
-Technology:      Postgres
+Technology:      PostgreSQL
 Database Name:   Database that contains the source schema
 Schema Name:     Schema that contains the source data
 Use ODBC:        Enabled
@@ -91,7 +91,7 @@ name: "DSN",    value: "PostgreSQL35W"
 In the **"Create a Database Connection"** screen, provide the following:
 
 ```
-Technology:      Postgres
+Technology:      PostgreSQL
 Database Name:   Schema that contains the source data (same as Schema Name)
 Schema Name:     Schema that contains the source data
 Use ODBC:        Enabled
