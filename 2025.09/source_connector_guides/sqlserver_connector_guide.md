@@ -20,7 +20,7 @@ It refers to the screen **"Create a Database Connection"**.
 Provide the following information in the **"Create a Database Connection"** screen:
 
 ```
-Technology:      Postgres
+Technology:      MS SQL Server
 Host Address:    Server name or IP address
 Host Port:       Port number, e.g. 1433
 Database Name:   Database name
