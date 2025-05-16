@@ -86,8 +86,6 @@ optionally:
 name: "Database",       value: "Database that contains the source schema"
 name: "Schema",         value: "Schema that contains the source data"
 name: "Warehouse",      value: "Warehouse to use for the execution of the SQLs"
-
-
 ```
 
 > 🔹 The `DSN` must match the name defined in your ODBC driver configuration.
