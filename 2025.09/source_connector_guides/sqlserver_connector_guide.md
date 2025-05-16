@@ -1,4 +1,4 @@
-# Source Connector for MS SQL Server
+# Source Connector for Teradata
 
 This guide describes how to configure Digna to connect to SQLServer using either the native Python connector or the ODBC driver.
 

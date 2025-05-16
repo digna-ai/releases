@@ -1,4 +1,4 @@
-# Source Connector for Postgres
+# Source Connector for PostgreSQL
 
 This guide describes how to configure Digna to connect to Postgres using either the native Python connector or the ODBC driver.
 

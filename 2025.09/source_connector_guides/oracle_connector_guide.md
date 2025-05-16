@@ -1,4 +1,4 @@
-# Source Connector for Snowflake
+# Source Connector for Oracle
 
 This guide describes how to configure Digna to connect to Oracle DB using either the native Python connector or the ODBC driver.
 
