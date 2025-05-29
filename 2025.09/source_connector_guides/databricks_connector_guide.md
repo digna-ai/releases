@@ -28,7 +28,7 @@ Provide the following information in the **"Create a Database Connection"** scre
 Technology:      Databricks
 Host Address:    Databricks hostname, e.g. "xxxxxxxxxxxxxxxxxxx.databricks.com"
 Host Port:       443
-Database Name:   Schema that contains the source data (same as Schema Name)
+Database Name:   Name of the catalog to use. Leave this empty if Unity Catalog is not used, or set it to "spark_catalog" 
 Schema Name:     Schema that contains the source data
 User Name:       HTTP Path provided by Databricks, e.g. "/sql/1.0/warehouses/xxxxxxxxxxxxxxx"
 User Password:   Personal Access Token, e.g. "dapixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -81,7 +81,7 @@ In the **"Create a Database Connection"** screen, provide the following:
 
 ```
 Technology:      Databricks
-Database Name:   Schema that contains the source data (same as Schema Name)
+Database Name:   Name of the catalog to use. Leave this empty if Unity Catalog is not used, or set it to "spark_catalog"
 Schema Name:     Schema that contains the source data
 Use ODBC:        Enabled
 ```
@@ -104,7 +104,7 @@ In the **"Create a Database Connection"** screen, provide the following:
 
 ```
 Technology:      Databricks
-Database Name:   Schema that contains the source data (same as Schema Name)
+Database Name:   Name of the catalog to use. Leave this empty if Unity Catalog is not used, or set it to "spark_catalog"
 Schema Name:     Schema that contains the source data
 Use ODBC:        Enabled
 ```
