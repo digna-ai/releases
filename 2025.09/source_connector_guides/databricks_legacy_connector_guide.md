@@ -25,7 +25,7 @@ To authenticate using a personal access token, refer to the official Databricks 
 Provide the following information in the **"Create a Database Connection"** screen:
 
 ```
-Technology:      Databricks-Legacy
+Technology:      Databricks (Legacy)
 Host Address:    Databricks hostname, e.g. "xxxxxxxxxxxxxxxxxxx.databricks.com"
 Host Port:       443
 Database Name:   This parameter is not in use for databricks without unity catalog
@@ -80,7 +80,7 @@ Now you can configure Digna to use the ODBC connection, either with a **DSN (Dat
 In the **"Create a Database Connection"** screen, provide the following:
 
 ```
-Technology:      Databricks-Legacy
+Technology:      Databricks (Legacy)
 Database Name:   This parameter is not in use for databricks without unity catalog
 Schema Name:     Schema that contains the source data
 Use ODBC:        Enabled
@@ -103,7 +103,7 @@ name: "DSN",    value: "dignadata_databricks"
 In the **"Create a Database Connection"** screen, provide the following:
 
 ```
-Technology:      Databricks-Legacy
+Technology:      Databricks (Legacy)
 Database Name:   This parameter is not in use for databricks without unity catalog
 Schema Name:     Schema that contains the source data
 Use ODBC:        Enabled
