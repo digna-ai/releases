@@ -137,7 +137,7 @@ dignacli --version
   
 ### Example Output
 ```bash
-dignacli version 2025.04
+dignacli version 2025.09
 ```
 
 ## Using logging options
@@ -368,6 +368,17 @@ dignacli clean-up ProjectA 2023-01-01 2023-06-30 --table-name Table1
   
 This command helps in managing data storage and ensuring that the repository only contains relevant information.
 
+## Using `remove-orphans` Command
+  
+The `remove-orphans` command in the ***digna*** CLI is used for house-keeping in the ***digna*** repository.  
+When a user deletes projects or data sources, the profiles and predictions remain in the repository. With this command, such orphaned rows will be removed from the repository.
+  
+### Command Usage
+  
+```bash
+dignacli list-projects
+```
+
 ## Using `list-projects` Command
   
 The `list-projects` command in the ***digna*** CLI is used to display a list of all available projects within the ***digna*** system.
@@ -406,7 +417,10 @@ This command provides users with an overview of the data sources available in a 
 
 ## Using `inspect` Command
 
-The `inspect` command in the ***digna*** CLI is used to create profiles, predictions, and traffic light system data for one or more data sources within a specified project. This command helps in analyzing and monitoring data over a defined period.
+The `inspect` command in the ***digna*** CLI is used to create profiles, predictions, and traffic light system data for one or more data sources within a specified project. This command helps in analyzing and monitoring data over a defined period. After completion of the inspection, the value of the calculated traffic light system is returned:  
+- 0: OK  
+- 1: INFO  
+- 2: WARNING
 
 ### Command Usage
 
@@ -424,16 +438,9 @@ dignacli inspect <PROJECT_NAME> <FROM_DATE> <TO_DATE> [options]
 
 - `--table-name`, `-tn`: Limits the inspection to a specific table within the project.
 - `--table-filter`, `-tf`: Filters to inspect only tables containing the specified substring in their names.
-- `--do-profile`: Triggers the recollection of profiles. The default is do-profile.
-- `--no-do-profile`: Prevents the recollection of profiles.
-- `--do-prediction`: Triggers the recalculation of predictions. The default is do-prediction.
-- `--no-do-prediction`: Prevents the recalculation of predictions.
-- `--do-alert-status`: Triggers the recalculation of alert statuses. The default is do-alert-status.
-- `--no-do-alert-status`: Prevents the recalculation of alert statuses.
-- `--iterative`: Triggers the inspection of a period using daily iterations. The default is iterative.
-- `--no-iterative`: Triggers the inspection of the entire period in one go.
 - `--enable_notification`, `-en`: Enables the sending of notifications in case of alerts.
-- `--timing`, `-tm`: Displays the duration of the inspection process after completion.
+- `--bypass-backend`, `-bb`: Bypass backend and run inspection directly from CLI (for testing purposes only!).
+
   
 ### Example
   
@@ -450,35 +457,10 @@ dignacli inspect ProjectA 2024-01-01 2024-01-31 --table-name Table1 --force-pred
 ```
 This command is useful for generating updated profiles and predictions, monitoring data integrity, and managing alert systems within a specified project timeframe.
 
-## Using `tls-status` Command
-
-The `tls-status` command in the ***digna*** CLI is used to query the status of the Traffic Light System (TLS) for a specific table within a project on a given date. The Traffic Light System provides insights into the data's health and quality, indicating any issues or alerts that may need attention.
-  
-### Command Usage
-  
-```bash
-dignacli tls-status <PROJECT_NAME> <TABLE_NAME> <DATE>
-```
-  
-### Arguments
-  
-- **PROJECT_NAME**: The name of the project for which the TLS status is being queried (required).
-- **TABLE_NAME**: The specific table within the project for which the TLS status is needed (required).
-- **DATE**: The date for which the TLS status is being queried, typically in the format %Y-%m-%d (required).
-  
-### Example
-  
-To check the TLS status for a table named UserData in the project ProjectA on July 1, 2024:
-
-```bash
-dignacli tls-status ProjectA UserData 2024-07-01
-```
-
-This command helps users monitor and maintain data quality by providing a clear and actionable status report based on predefined criteria.
-
 ## Using `inspect-async` Command
 
-The `inspect-async` command in the ***digna*** CLI is used to instruct the backend to asynchronously perform the inspection for one or more data sources for a given project. If project_name is set to all-projects, the inspection will iterate over all available projects and perform the inspection. It returns a request id that can be used to track the progress of the inspection.
+The `inspect-async` command in the ***digna*** CLI is used to create profiles, predictions, and traffic light system data for one or more data sources within a specified project. This command helps in analyzing and monitoring data over a defined period. In contrast to the `inspect-async` command, this does not wait for the completion of the inspection.
+Instead, it returns the request id for the submitted inspection request. To query the progress of the inspection process, use the command `inspect-status`
 
 ### Command Usage
 
@@ -496,6 +478,7 @@ dignacli inspect-async <PROJECT_NAME> <FROM_DATE> <TO_DATE> [options]
 
 - `--table-name`, `-tn`: Limits the inspection to a specific table within the project.
 - `--table-filter`, `-tf`: Filters to inspect only tables containing the specified substring in their names.
+- `--enable_notification`, `-en`: Enables the sending of notifications in case of alerts.
 
   
 ### Example
@@ -513,24 +496,43 @@ The `inspect-status` command in the ***digna*** CLI is used to check the progres
 ### Command Usage
 
 ```bash
-dignacli inspect-status <REQUEST ID> [options]
+dignacli inspect-status <REQUEST ID>
 ```
   
 ### Arguments
   
 - **REQUEST_ID**: The request id returned by the `inspect-async` command 
   
-### Options
+### Example
+  
+To check the progress of an inspection with request ID 12345:
+  
+```bash
+dignacli inspect-status 12345
+```
 
-- `--report_level`, `-rl`: Set report level: 'task' or 'step' [default: task]
+## Using `inspect-cancel` Command
+
+The `inspect-cancel` command in the ***digna*** CLI is used to cancel inspections based on the request ID.
+
+### Command Usage
+
+```bash
+dignacli inspect-cancel <REQUEST ID>
+```
+  
+### Arguments
+  
+- **REQUEST_ID**: The request id returned by the `inspect-async` command 
   
 ### Example
   
-To check the progress of an inspection with request ID 12345 on the detailed step level:
+To cancel the inspection with request ID 12345:
   
 ```bash
-dignacli inspect-status 12345 --report-level step
+dignacli inspect-cancel 12345
 ```
+
   
 ## Using `export-ds` Command
 
