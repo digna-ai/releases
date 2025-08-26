@@ -513,12 +513,14 @@ dignacli inspect-status 12345
 
 ## Using `inspect-cancel` Command
 
-The `inspect-cancel` command in the ***digna*** CLI is used to cancel inspections based on the request ID.
+The `inspect-cancel` command in the ***digna*** CLI is used to cancel inspections based on the request ID or it can be used to cancel all current requests.
 
 ### Command Usage
 
 ```bash
 dignacli inspect-cancel <REQUEST ID>
+dignacli inspect-cancel --killall
+
 ```
   
 ### Arguments
@@ -531,6 +533,12 @@ To cancel the inspection with request ID 12345:
   
 ```bash
 dignacli inspect-cancel 12345
+```
+
+To cancel all requests that are currently running or pending:
+  
+```bash
+dignacli inspect-cancel --killall
 ```
 
   
