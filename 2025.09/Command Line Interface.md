@@ -13,6 +13,7 @@
 - [Installation Instruction for Windows](#installation-instruction-for-windows)
 - [CLI Basics](#cli-basics)
   - [Using `help` Option](#using-help-option)
+  - [Using `check-config` Command](#using-check-config-command)
   - [Using `check-repo-connection` Command](#using-check-repo-connection-command)
   - [Using `version` Command](#using-version-command)
   - [Using Logging Options](#using-logging-options)
@@ -112,6 +113,23 @@ The `--help` option provides information about available commands and their usag
      - **Options:** Lists any options specific to the command, along with their explanations.  
      - **Examples:** Provides examples of how to execute the command effectively.
 
+## Using `check-config` Command
+
+The check-config command is a utility within the ***digna*** CLI tool designed to test the configuration of ***digna***. This command ensures that the ***digna*** components can find the needed configuration elements in the config.toml.
+
+### Options
+
+- `--configpath`, `-cp`: File or directory that contains the configuration. If omitted, ../config.toml will be used.
+      
+### Command Usage
+```bash
+dignacli check-config
+```
+
+Upon successful execution, the command outputs a confirmation of completeness of the configration.  
+  
+If the configuration appears to be incomplete, the missing configuration elements will be listed.
+
   
 ## Using `check-repo-connection` Command
 
@@ -125,6 +143,7 @@ dignacli check-repo-connection
 Upon successful execution, the command outputs a confirmation of the connection, along with details about the repository: Repository version, Host, Database and Schema.  
   
 If the repository connection is not successful, check the config.toml file for correct configuration settings.
+
 
 ## Using ‘version’ command
 
